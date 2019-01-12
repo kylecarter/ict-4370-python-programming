@@ -39,9 +39,14 @@
 '''
 
 import locale
+from decimal import Decimal
 
+# Run using Python 3 will not work with Python 2
+
+# This class is used to hold all the data and methods related to this project.
 class StockInfo:
 
+    # Creates initial variables.
     def __init__(self):
         self.stock_name = ''
         self.num_shares = float(0)
@@ -49,6 +54,8 @@ class StockInfo:
         self.current_cost_per_share = float(0)
         self.locale = locale.getdefaultlocale()
 
+    # Creates the command line prompts and stores the rasw data from the user
+    # in the object created here.
     def get_data(self):
         return {
             'stock_name': input("Please enter a stock symbol you own: "),
@@ -60,6 +67,8 @@ class StockInfo:
                 "How much do the shares cost now? ")
         }
 
+    # The requirements running math against the user input this ensures the user
+    # enters data that can have math run against it.
     def valid(self, data):
         valid = True
         self.stock_name = data['stock_name']
@@ -83,22 +92,33 @@ class StockInfo:
 
         return valid
 
+    # Takes the user input for the value of the stocks and converts them to number
+    # strings. This takes into account if the user is entering currency for their
+    # locale.
     def convert_to_number(self, currency):
         locale.setlocale(locale.LC_ALL, self.locale[0] + '.' + self.locale[1])
         conv = locale.localeconv()
         return locale.atof(currency.strip(conv['currency_symbol']))
 
+    # This returns a locale currency string of the value a person has made or lost
+    # from a stock purchase. Positive numbers are money earned; negative values are
+    # money lost.
     def get_stock_risk(self, purchase_price, current_price):
-        return self.get_local_currency(purchase_price - current_price)
+        return self.get_local_currency((current_price * self.num_shares) - (purchase_price * self.num_shares))
 
+    # Converts a number value to a localized currency string this uses the
+    # client computer localization data to construct the string.
     def get_local_currency(self, currency):
-        return str(currency)
+        return locale.currency(currency, grouping = True)
 
+    # So long as the user entered valid data then the output lines provided in the
+    # assignment are produced. If not valid an error message is thrown.
     def show_data(self):
         data = self.get_data()
 
         if self.valid(data):
-            print(self.stock_name.upper() + ': ' + str(self.num_shares))
+            print(self.stock_name.upper() + ': ' +
+                  str(Decimal(self.num_shares).normalize()) + ' shares')
             print('Purchase Price: ' + self.get_local_currency(self.cost_per_share))
             print('Current Price per Share: ' +
                   self.get_local_currency(self.current_cost_per_share))
