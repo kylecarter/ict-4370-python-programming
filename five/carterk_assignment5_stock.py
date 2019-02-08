@@ -2,7 +2,7 @@
 /**
  * Assignment 5 | ICT 4370 | Python Programming
  *
- * Converts a number to a local currency string.
+ * Class for Stocks.
  *
  * @category   Assignment
  * @package    AssignmentFiveStock
@@ -17,105 +17,34 @@
 
 import calendar
 import locale
+import uuid
 
 from datetime import datetime, date
 
 
 class Stock():
+    """
+    A class for managing Stock data.
+    """
 
-    def __init__(self):
+    def __init__(self, **kwargs):
         """
         Sets the initial variables. These are used for printing content
         and storing initial data.
         """
+        self.id = str(uuid.uuid1())
         self.locale = locale.getdefaultlocale()
         locale.setlocale(locale.LC_ALL, '')
 
-        self.spaces = ''.join([' ' for x in range(0, 24)])
-        self.headings = (
-            'STOCK',
-            'SHARE#',
-            'EARNINGS/LOSS',
-            'YEARLY EARNING/LOSS'
-        )
-        self.header = [heading + self.spaces for heading in self.headings]
-        self.divider = ''.join(
-            ['-' for y in range(0, len(''.join(self.header)))])
+        for name, value in kwargs.items():
+            self.__setattr__(name, value)
 
-        self.dataset = (
-            {
-                'stock_name': 'GOOGL',
-                'num_shares': 125,
-                'costs': {
-                    'purchase_amount': '$772.88',
-                    'current_price': '$941.53'
-                },
-                'purchased': '2015-08-1'
-            },
-            {
-                'stock_name': 'MSFT',
-                'num_shares': 85,
-                'costs': {
-                    'purchase_amount': '$56.60',
-                    'current_price': '$73.04'
-                },
-                'purchased': '2015-08-1'
-            },
-            {
-                'stock_name': 'RDS-A',
-                'num_shares': 400,
-                'costs': {
-                    'purchase_amount': '$49.58',
-                    'current_price': '$55.74'
-                },
-                'purchased': '2015-08-1'
-            },
-            {
-                'stock_name': 'AIG',
-                'num_shares': 235,
-                'costs': {
-                    'purchase_amount': '$54.21',
-                    'current_price': '$65.27'
-                },
-                'purchased': '2015-08-1'
-            },
-            {
-                'stock_name': 'FB',
-                'num_shares': 150,
-                'costs': {
-                    'purchase_amount': '$124.31',
-                    'current_price': '$172.45'
-                },
-                'purchased': '2015-08-1'
-            },
-            {
-                'stock_name': 'M',
-                'num_shares': 425,
-                'costs': {
-                    'purchase_amount': '$30.30',
-                    'current_price': '$23.98'
-                },
-                'purchased': '2017-01-10'
-            },
-            {
-                'stock_name': 'F',
-                'num_shares': 85,
-                'costs': {
-                    'purchase_amount': '$12.58',
-                    'current_price': '$10.95'
-                },
-                'purchased': '2017-02-17'
-            },
-            {
-                'stock_name': 'IBM',
-                'num_shares': 80,
-                'costs': {
-                    'purchase_amount': '$150.37',
-                    'current_price': '$145.30'
-                },
-                'purchased': '2017-05-12'
-            },
-        )
+    def __setattr__(self, name, value):
+        """
+        Sets named attributes to a class object.
+        """
+        self.__dict__[name] = value
+
 
     def get_local_currency(self, currency):
         """
@@ -140,35 +69,31 @@ class Stock():
         """
         return ''.join([' ' for v in range(0, offset)])
 
-    def print_stock_details(self):
-        header = self.header
+    def print_output_row(self, header):
+        """
+        Prints individual rows of stock data.
+        """
+        output = ''
 
-        print(self.divider)
-        print(''.join(header))
-        print(self.divider)
+        output += self.stock_name + self.get_spaces(
+            len(header[0]) - len(self.stock_name))
+        
+        output += str(self.num_shares) + self.get_spaces(
+            len(header[1]) - len(str(self.num_shares)))
 
-        for stock in self.dataset:
-            output = ''
+        risk = self.get_risk(self.purchase_amount,
+            self.current_price, self.num_shares)
 
-            output += stock['stock_name'] + self.get_spaces(
-                len(header[0]) - len(stock['stock_name']))
-            
-            output += str(stock['num_shares']) + self.get_spaces(
-                len(header[1]) - len(str(stock['num_shares'])))
+        output += risk + self.get_spaces(
+            len(header[2]) - len(risk))
 
-            risk = self.get_risk(stock['costs']['purchase_amount'],
-                stock['costs']['current_price'], stock['num_shares'])
+        risk_percent = self.get_risk_percent(purchase_price=self.purchase_amount,
+            current_price=self.current_price, purchased=self.purchased)
 
-            output += risk + self.get_spaces(
-                len(header[2]) - len(risk))
+        output += risk_percent + self.get_spaces(
+            len(header[3]) - len(risk_percent))
 
-            risk_percent = self.get_risk_percent(purchase_price = stock['costs']['purchase_amount'],
-                current_price = stock['costs']['current_price'], purchased = stock['purchased'])
-
-            output += risk_percent + self.get_spaces(
-                len(header[3]) - len(risk_percent))
-
-            print(output)
+        print(output)
 
     def get_risk(self, purchase_price, current_price, num_shares):
         """
