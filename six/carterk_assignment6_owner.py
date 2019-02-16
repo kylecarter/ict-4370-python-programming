@@ -5,7 +5,7 @@
  * Class for stock and bonds owners.
  *
  * @category   Assignment
- * @package    AssignmentSixStock
+ * @package    AssignmentSixOwner
  * @author     Kyle A. Carter <kyle.carter@du.edu>
  * @copyright  2019 Kyle A. Carter
  * @license    https://opensource.org/licenses/GPL-3.0  GNU General Public License version 3
