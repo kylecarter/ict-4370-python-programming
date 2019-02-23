@@ -257,3 +257,8 @@ typings/
 
 # VS Code
 .vscode/
+
+# Archives
+*.zip
+*.tar
+*.gz

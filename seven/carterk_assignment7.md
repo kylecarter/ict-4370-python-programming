@@ -1,5 +1,5 @@
-Owner Details
-=============
+Investor Details
+=================
 Kyle Andrew Carter
 ------------------
 ### Contact
