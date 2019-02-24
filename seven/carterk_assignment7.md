@@ -6,7 +6,8 @@ Kyle Andrew Carter
 * 2199 S. University Blvd.
 * Building A
 * Denver, CO 80210
-* (p)303.871.2706
+* (p) 303.871.2706
+* (e) gradinfo@du.edu
 ### Stocks
 | STOCK    | SHARE#    | EARNINGS/LOSS    | YEARLY EARNING/LOSS    | 
 |:-------- |:--------- |:---------------- |:---------------------- |

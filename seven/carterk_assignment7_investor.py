@@ -16,8 +16,8 @@
 '''
 import uuid
 
-from carterk_assignment7_stock import Stock
 from carterk_assignment7_bond import Bond
+from carterk_assignment7_stock import Stock
 
 
 class Investor():
@@ -60,12 +60,23 @@ class Investor():
         self.bonds.append(Bond(**kwargs))
 
 
-    def get_investor_full_name(self, *args):
+    def get_investor_full_name(self):
         """
         Given a list of strings will return a concatnated
         name string.
         """
-        return ' '.join(args)
+        name = []
+
+        if self.first_name:
+            name.append(self.first_name)
+
+        if self.middle_name:
+            name.append(self.middle_name)
+
+        if self.last_name:
+            name.append(self.last_name)
+
+        return ' '.join(name).title()
 
 
     def get_investor_address(self, **kwargs):
@@ -76,18 +87,18 @@ class Investor():
         address = []
 
         if kwargs['street']:
-            address.append(kwargs['street'])
+            address.append(kwargs['street'].title())
         
         if kwargs['street_2']:
-            address.append(kwargs['street_2'])
+            address.append(kwargs['street_2'].title())
         
         city_state = []
         address_details = ''
         if kwargs['city']:
-            city_state.append(kwargs['city'])
+            city_state.append(kwargs['city'].title())
         
         if kwargs['state']:
-            city_state.append(kwargs['state'])
+            city_state.append(kwargs['state'].upper())
         
         address_details = ', '.join(city_state)
         
@@ -102,10 +113,17 @@ class Investor():
 
     def get_investor_phone_num(self):
         if not self.phone_number:
-            return '(p)' + ' Unavailable'
+            return '(p) ' + ' Unavailable'
         else:
-            return '(p)' + self.phone_number
-    
+            return '(p) ' + self.phone_number
+
+
+    def get_investor_email(self):
+        if not self.email:
+            return '(e) ' + ' Unavailable'
+        else:
+            return '(e) ' + self.email
+
 
     def print_stock_details(self):
         output = ''

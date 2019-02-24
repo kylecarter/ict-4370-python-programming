@@ -262,3 +262,5 @@ typings/
 *.zip
 *.tar
 *.gz
+*.sqlite
+*.db

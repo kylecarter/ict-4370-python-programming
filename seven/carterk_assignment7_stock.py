@@ -39,6 +39,7 @@ class Stock():
         for name, value in kwargs.items():
             self.__setattr__(name, value)
 
+
     def __setattr__(self, name, value):
         """
         Sets named attributes to a class object.
