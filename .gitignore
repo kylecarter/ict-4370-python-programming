@@ -264,3 +264,12 @@ typings/
 *.gz
 *.sqlite
 *.db
+
+# dotenv environment variables file
+.env
+.env.*
+
+# system
+.venv
+static/django/*
+!static/django/.staticfilesrc
