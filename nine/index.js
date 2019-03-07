@@ -1,7 +1,7 @@
-import express from 'express';
-import next from 'next';
-import httpProxy from 'http-proxy';
-import cookieParser from 'cookie-parser';
+const express = require('express');
+const next = require('next');
+const httpProxy = require('http-proxy');
+const cookieParser = require('cookie-parser');
 
 const DEV = process.env.NODE_ENV !== 'production';
 const APP = next({ DEV });

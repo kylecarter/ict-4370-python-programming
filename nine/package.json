@@ -8,10 +8,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "next",
     "build": "next build",
-    "start": "next start -p $PORT",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "node:dev": "npm run build && node ./index.js",
+    "django:dev": "python backend/manage.py runserver",
+    "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
+    "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",
+    "django:prod": "python backend/manage.py runserver $DJANGO_HOST:$DJANGO_PORT",
+    "node:prod": "node --optimize_for_size --max_old_space_size=920 --gc_interval=100 --expose-gc server.js"
   },
   "engines": {
     "node": "10.15.0",
