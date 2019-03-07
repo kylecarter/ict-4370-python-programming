@@ -271,5 +271,6 @@ typings/
 
 # system
 .venv
-static/django/*
-!static/django/.staticfilesrc
+nine/.next
+nine/static/django/*
+!nine/static/django/.staticfilesrc
