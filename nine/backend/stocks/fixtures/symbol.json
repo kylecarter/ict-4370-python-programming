@@ -1,0 +1,66 @@
+[
+    {
+        "model": "stocks.symbol",
+        "pk": 1,
+        "fields": {
+            "symbol": "AIG",
+            "business": "American International Group Inc."
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 2,
+        "fields": {
+            "symbol": "F",
+            "business": "Ford Motor Co."
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 3,
+        "fields": {
+            "symbol": "FB",
+            "business": "Facebook Inc. Cl A"
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 4,
+        "fields": {
+            "symbol": "GOOG",
+            "business": "Alphabet Inc. Cl C"
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 5,
+        "fields": {
+            "symbol": "IBM",
+            "business": "International Business Machines Corp."
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 6,
+        "fields": {
+            "symbol": "M",
+            "business": "Macy's Inc."
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 7,
+        "fields": {
+            "symbol": "MSFT",
+            "business": "Microsoft Corp."
+        }
+    },
+    {
+        "model": "stocks.symbol",
+        "pk": 8,
+        "fields": {
+            "symbol": "RDS.A",
+            "business": "Royal Dutch Shell PLC ADR Cl A"
+        }
+    }
+]

@@ -1,0 +1,18 @@
+[
+    {
+        "model": "companions.owner",
+        "pk": 1,
+        "fields": {
+            "first_name": "Kyle",
+            "last_name": "Carter"
+        }
+    },
+    {
+        "model": "companions.owner",
+        "pk": 2,
+        "fields": {
+            "first_name": "Kristen",
+            "last_name": "DeGraw"
+        }
+    }
+]

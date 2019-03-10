@@ -1,0 +1,10 @@
+.footer {
+    color: #ffffff;
+    font-size: 0.875rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+}
+
+.footer p {
+    color: inherit;
+}

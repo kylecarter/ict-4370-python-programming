@@ -132,5 +132,6 @@ STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static/django')
 # Additional Installed Apps
 INSTALLED_APPS = [
     'api.apps.ApiConfig',
+    'companions.apps.CompanionsConfig',
     'stocks.apps.StocksConfig',
 ] + INSTALLED_APPS

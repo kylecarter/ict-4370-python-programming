@@ -16,8 +16,14 @@ Including another URLconf
 from django.urls import path
 
 # Custom
-from . import views
+from .views import verify
+from companions.views import Companions
+from stocks.views import Symbols, StockDetails
+
 
 urlpatterns = [
-    path('verify/', views.verify, name='verify'),
+    path('verify/', verify, name='verify'),
+    path('companions/', Companions.as_view()),
+    path('symbols/', Symbols.as_view()),
+    path('stocks/<int:symbol_id>', StockDetails.as_view())
 ]

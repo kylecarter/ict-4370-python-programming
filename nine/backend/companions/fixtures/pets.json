@@ -1,0 +1,38 @@
+[
+    {
+        "model": "companions.pet",
+        "pk": 1,
+        "fields": {
+            "owner": 1,
+            "type_of_pet": "Cat",
+            "birthdate": "2004-05-01",
+            "name": "Alice",
+            "breed": "Short haired mixed",
+            "weight": 4.54
+        }
+    },
+    {
+        "model": "companions.pet",
+        "pk": 2,
+        "fields": {
+            "owner": 1,
+            "type_of_pet": "Cat",
+            "birthdate": "2010-01-01",
+            "name": "Miley",
+            "breed": "Tabby",
+            "weight": 4.54
+        }
+    },
+    {
+        "model": "companions.pet",
+        "pk": 3,
+        "fields": {
+            "owner": 2,
+            "type_of_pet": "Dog",
+            "birthdate": "2012-01-01",
+            "name": "Korra",
+            "breed": "Long Haired Shepard",
+            "weight": 34.02
+        }
+    }
+]

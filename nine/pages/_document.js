@@ -16,6 +16,7 @@ class MyDocument extends Document {
                     <meta name="robots" content="INDEX,FOLLOW" />
                     <meta name="HandheldFriendly" content="true" />
                     <link rel="canonical" href="https://kylecarter.info/" />
+                    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossOrigin="anonymous" />
                     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i" />
                     <link rel="stylesheet" href="/static/styles.css" />
                 </Head>

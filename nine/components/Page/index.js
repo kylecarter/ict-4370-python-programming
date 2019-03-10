@@ -7,7 +7,7 @@ import styles from './styles.css';
 export default props => {
     const { className } = props;
     return (<div className={[styles.content, className].join(' ')}>
-        <Navbar />
+        <Navbar active={props.active} />
         <div className={styles.wrapper}>{props.children}</div>
         <Footer />
     </div>);
