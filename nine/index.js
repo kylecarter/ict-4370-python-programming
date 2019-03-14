@@ -21,7 +21,15 @@ APP.prepare().then(() => {
         return PROXY.web(req, res, { target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT });
     });
 
+    SERVER.post('/api*', (req, res) => {
+        return PROXY.web(req, res, { target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT });
+    });
+
     SERVER.get('/admin*', (req, res) => {
+        return PROXY.web(req, res, { target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT });
+    });
+
+    SERVER.post('/admin*', (req, res) => {
         return PROXY.web(req, res, { target: 'http://' + process.env.DJANGO_HOST + ':' + process.env.DJANGO_PORT });
     });
 

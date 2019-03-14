@@ -10,7 +10,7 @@
   "scripts": {
     "build": "next build",
     "postinstall": "npm run build",
-    "node:dev": "npm run build && node ./index.js",
+    "node:dev": "npm run build && nodemon ./index.js",
     "django:dev": "python backend/manage.py runserver",
     "dev": "concurrently --kill-others \"npm run django:dev\" \"npm run node:dev\"",
     "start": "concurrently --kill-others \"npm run django:prod\" \"npm run node:prod\"",

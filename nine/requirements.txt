@@ -1,2 +1,5 @@
+beautifulsoup4==4.7.1
 Django==2.1.7
+django-extensions==2.1.6
 pytz==2018.9
+soupsieve==1.8

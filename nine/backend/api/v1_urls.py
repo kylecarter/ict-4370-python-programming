@@ -16,14 +16,16 @@ Including another URLconf
 from django.urls import path
 
 # Custom
-from .views import verify
+from .views import verify, GetForm
 from companions.views import Companions
-from stocks.views import Symbols, StockDetails
+from stocks.views import Symbols, StockDetails, StockByDateSearch
 
 
 urlpatterns = [
     path('verify/', verify, name='verify'),
     path('companions/', Companions.as_view()),
+    path('forms/<str:form_name>/', GetForm.as_view()),
     path('symbols/', Symbols.as_view()),
-    path('stocks/<int:symbol_id>', StockDetails.as_view())
+    path('stocks/search/', StockByDateSearch.as_view()),
+    path('stocks/<int:symbol_id>/', StockDetails.as_view())
 ]

@@ -6,7 +6,7 @@
         "backend"
     ],
     "watch": [
-        "server/**/*",
+        "pages/**/*",
         "index.js"
     ],
     "ext": "js json css"

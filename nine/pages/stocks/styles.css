@@ -1,3 +1,16 @@
 .content {
     margin-bottom: 42px;
 }
+
+.label {
+    margin-bottom: 8px;
+    display: block;
+}
+
+.actions {
+    margin-top: 8px;
+}
+
+.actions .btn {
+    width: 100%;
+}
